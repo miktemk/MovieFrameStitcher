@@ -45,3 +45,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# compile and build directories
+#-----------------------------
+ConsoleTests/bin/*
+ConsoleTests/obj/*
+MovieFrameStitcher/bin/*
+MovieFrameStitcher/obj/*
+MovieFrameStitcher.GUI/bin/*
+MovieFrameStitcher.GUI/obj/*
+
