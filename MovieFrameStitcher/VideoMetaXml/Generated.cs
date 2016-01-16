@@ -11,6 +11,7 @@ namespace MovieFrameStitcher.VideoMetaXml
 
 
 
+
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
@@ -18,8 +19,6 @@ namespace MovieFrameStitcher.VideoMetaXml
     {
 
         private ffprobeStream[] streamsField;
-
-        private ffprobeFormat formatField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("stream", IsNullable = false)]
@@ -34,19 +33,6 @@ namespace MovieFrameStitcher.VideoMetaXml
                 this.streamsField = value;
             }
         }
-
-        /// <remarks/>
-        public ffprobeFormat format
-        {
-            get
-            {
-                return this.formatField;
-            }
-            set
-            {
-                this.formatField = value;
-            }
-        }
     }
 
     /// <remarks/>
@@ -54,25 +40,13 @@ namespace MovieFrameStitcher.VideoMetaXml
     public partial class ffprobeStream
     {
 
-        private ffprobeStreamDisposition dispositionField;
-
-        private ffprobeStreamTag[] tagField;
-
-        private byte indexField;
-
-        private string codec_nameField;
-
-        private string codec_long_nameField;
-
-        private string profileField;
-
         private string codec_typeField;
 
-        private string codec_time_baseField;
+        private decimal durationField;
 
-        private string codec_tag_stringField;
+        private bool durationFieldSpecified;
 
-        private string codec_tagField;
+        private string codec_nameField;
 
         private ushort widthField;
 
@@ -82,162 +56,17 @@ namespace MovieFrameStitcher.VideoMetaXml
 
         private bool heightFieldSpecified;
 
-        private byte has_b_framesField;
-
-        private bool has_b_framesFieldSpecified;
-
-        private string sample_aspect_ratioField;
-
-        private string display_aspect_ratioField;
-
-        private string pix_fmtField;
-
-        private sbyte levelField;
-
-        private bool levelFieldSpecified;
-
-        private string chroma_locationField;
-
-        private byte is_avcField;
-
-        private bool is_avcFieldSpecified;
-
-        private byte nal_length_sizeField;
-
-        private bool nal_length_sizeFieldSpecified;
-
         private string r_frame_rateField;
 
         private string avg_frame_rateField;
 
-        private string time_baseField;
-
-        private ushort start_ptsField;
-
-        private decimal start_timeField;
-
-        private uint duration_tsField;
-
-        private bool duration_tsFieldSpecified;
-
-        private decimal durationField;
-
-        private bool durationFieldSpecified;
-
-        private uint bit_rateField;
-
-        private byte bits_per_raw_sampleField;
-
-        private bool bits_per_raw_sampleFieldSpecified;
-
         private uint nb_framesField;
 
-        private ushort nb_read_framesField;
+        private bool nb_framesFieldSpecified;
+
+        private uint nb_read_framesField;
 
         private bool nb_read_framesFieldSpecified;
-
-        private string sample_fmtField;
-
-        private ushort sample_rateField;
-
-        private bool sample_rateFieldSpecified;
-
-        private byte channelsField;
-
-        private bool channelsFieldSpecified;
-
-        private string channel_layoutField;
-
-        private byte bits_per_sampleField;
-
-        private bool bits_per_sampleFieldSpecified;
-
-        private string color_rangeField;
-
-        private string color_spaceField;
-
-        /// <remarks/>
-        public ffprobeStreamDisposition disposition
-        {
-            get
-            {
-                return this.dispositionField;
-            }
-            set
-            {
-                this.dispositionField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("tag")]
-        public ffprobeStreamTag[] tag
-        {
-            get
-            {
-                return this.tagField;
-            }
-            set
-            {
-                this.tagField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte index
-        {
-            get
-            {
-                return this.indexField;
-            }
-            set
-            {
-                this.indexField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string codec_name
-        {
-            get
-            {
-                return this.codec_nameField;
-            }
-            set
-            {
-                this.codec_nameField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string codec_long_name
-        {
-            get
-            {
-                return this.codec_long_nameField;
-            }
-            set
-            {
-                this.codec_long_nameField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string profile
-        {
-            get
-            {
-                return this.profileField;
-            }
-            set
-            {
-                this.profileField = value;
-            }
-        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -255,43 +84,43 @@ namespace MovieFrameStitcher.VideoMetaXml
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string codec_time_base
+        public decimal duration
         {
             get
             {
-                return this.codec_time_baseField;
+                return this.durationField;
             }
             set
             {
-                this.codec_time_baseField = value;
+                this.durationField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool durationSpecified
+        {
+            get
+            {
+                return this.durationFieldSpecified;
+            }
+            set
+            {
+                this.durationFieldSpecified = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string codec_tag_string
+        public string codec_name
         {
             get
             {
-                return this.codec_tag_stringField;
+                return this.codec_nameField;
             }
             set
             {
-                this.codec_tag_stringField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string codec_tag
-        {
-            get
-            {
-                return this.codec_tagField;
-            }
-            set
-            {
-                this.codec_tagField = value;
+                this.codec_nameField = value;
             }
         }
 
@@ -353,174 +182,6 @@ namespace MovieFrameStitcher.VideoMetaXml
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte has_b_frames
-        {
-            get
-            {
-                return this.has_b_framesField;
-            }
-            set
-            {
-                this.has_b_framesField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool has_b_framesSpecified
-        {
-            get
-            {
-                return this.has_b_framesFieldSpecified;
-            }
-            set
-            {
-                this.has_b_framesFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string sample_aspect_ratio
-        {
-            get
-            {
-                return this.sample_aspect_ratioField;
-            }
-            set
-            {
-                this.sample_aspect_ratioField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string display_aspect_ratio
-        {
-            get
-            {
-                return this.display_aspect_ratioField;
-            }
-            set
-            {
-                this.display_aspect_ratioField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string pix_fmt
-        {
-            get
-            {
-                return this.pix_fmtField;
-            }
-            set
-            {
-                this.pix_fmtField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public sbyte level
-        {
-            get
-            {
-                return this.levelField;
-            }
-            set
-            {
-                this.levelField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool levelSpecified
-        {
-            get
-            {
-                return this.levelFieldSpecified;
-            }
-            set
-            {
-                this.levelFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string chroma_location
-        {
-            get
-            {
-                return this.chroma_locationField;
-            }
-            set
-            {
-                this.chroma_locationField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte is_avc
-        {
-            get
-            {
-                return this.is_avcField;
-            }
-            set
-            {
-                this.is_avcField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool is_avcSpecified
-        {
-            get
-            {
-                return this.is_avcFieldSpecified;
-            }
-            set
-            {
-                this.is_avcFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte nal_length_size
-        {
-            get
-            {
-                return this.nal_length_sizeField;
-            }
-            set
-            {
-                this.nal_length_sizeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool nal_length_sizeSpecified
-        {
-            get
-            {
-                return this.nal_length_sizeFieldSpecified;
-            }
-            set
-            {
-                this.nal_length_sizeFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public string r_frame_rate
         {
             get
@@ -549,146 +210,6 @@ namespace MovieFrameStitcher.VideoMetaXml
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string time_base
-        {
-            get
-            {
-                return this.time_baseField;
-            }
-            set
-            {
-                this.time_baseField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ushort start_pts
-        {
-            get
-            {
-                return this.start_ptsField;
-            }
-            set
-            {
-                this.start_ptsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public decimal start_time
-        {
-            get
-            {
-                return this.start_timeField;
-            }
-            set
-            {
-                this.start_timeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint duration_ts
-        {
-            get
-            {
-                return this.duration_tsField;
-            }
-            set
-            {
-                this.duration_tsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool duration_tsSpecified
-        {
-            get
-            {
-                return this.duration_tsFieldSpecified;
-            }
-            set
-            {
-                this.duration_tsFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public decimal duration
-        {
-            get
-            {
-                return this.durationField;
-            }
-            set
-            {
-                this.durationField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool durationSpecified
-        {
-            get
-            {
-                return this.durationFieldSpecified;
-            }
-            set
-            {
-                this.durationFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint bit_rate
-        {
-            get
-            {
-                return this.bit_rateField;
-            }
-            set
-            {
-                this.bit_rateField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte bits_per_raw_sample
-        {
-            get
-            {
-                return this.bits_per_raw_sampleField;
-            }
-            set
-            {
-                this.bits_per_raw_sampleField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool bits_per_raw_sampleSpecified
-        {
-            get
-            {
-                return this.bits_per_raw_sampleFieldSpecified;
-            }
-            set
-            {
-                this.bits_per_raw_sampleFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public uint nb_frames
         {
             get
@@ -702,8 +223,22 @@ namespace MovieFrameStitcher.VideoMetaXml
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nb_framesSpecified
+        {
+            get
+            {
+                return this.nb_framesFieldSpecified;
+            }
+            set
+            {
+                this.nb_framesFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ushort nb_read_frames
+        public uint nb_read_frames
         {
             get
             {
@@ -728,591 +263,95 @@ namespace MovieFrameStitcher.VideoMetaXml
                 this.nb_read_framesFieldSpecified = value;
             }
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string sample_fmt
-        {
-            get
-            {
-                return this.sample_fmtField;
-            }
-            set
-            {
-                this.sample_fmtField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ushort sample_rate
-        {
-            get
-            {
-                return this.sample_rateField;
-            }
-            set
-            {
-                this.sample_rateField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool sample_rateSpecified
-        {
-            get
-            {
-                return this.sample_rateFieldSpecified;
-            }
-            set
-            {
-                this.sample_rateFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte channels
-        {
-            get
-            {
-                return this.channelsField;
-            }
-            set
-            {
-                this.channelsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool channelsSpecified
-        {
-            get
-            {
-                return this.channelsFieldSpecified;
-            }
-            set
-            {
-                this.channelsFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string channel_layout
-        {
-            get
-            {
-                return this.channel_layoutField;
-            }
-            set
-            {
-                this.channel_layoutField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte bits_per_sample
-        {
-            get
-            {
-                return this.bits_per_sampleField;
-            }
-            set
-            {
-                this.bits_per_sampleField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool bits_per_sampleSpecified
-        {
-            get
-            {
-                return this.bits_per_sampleFieldSpecified;
-            }
-            set
-            {
-                this.bits_per_sampleFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string color_range
-        {
-            get
-            {
-                return this.color_rangeField;
-            }
-            set
-            {
-                this.color_rangeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string color_space
-        {
-            get
-            {
-                return this.color_spaceField;
-            }
-            set
-            {
-                this.color_spaceField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class ffprobeStreamDisposition
-    {
-
-        private byte defaultField;
-
-        private byte dubField;
-
-        private byte originalField;
-
-        private byte commentField;
-
-        private byte lyricsField;
-
-        private byte karaokeField;
-
-        private byte forcedField;
-
-        private byte hearing_impairedField;
-
-        private byte visual_impairedField;
-
-        private byte clean_effectsField;
-
-        private byte attached_picField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte @default
-        {
-            get
-            {
-                return this.defaultField;
-            }
-            set
-            {
-                this.defaultField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte dub
-        {
-            get
-            {
-                return this.dubField;
-            }
-            set
-            {
-                this.dubField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte original
-        {
-            get
-            {
-                return this.originalField;
-            }
-            set
-            {
-                this.originalField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte comment
-        {
-            get
-            {
-                return this.commentField;
-            }
-            set
-            {
-                this.commentField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte lyrics
-        {
-            get
-            {
-                return this.lyricsField;
-            }
-            set
-            {
-                this.lyricsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte karaoke
-        {
-            get
-            {
-                return this.karaokeField;
-            }
-            set
-            {
-                this.karaokeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte forced
-        {
-            get
-            {
-                return this.forcedField;
-            }
-            set
-            {
-                this.forcedField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte hearing_impaired
-        {
-            get
-            {
-                return this.hearing_impairedField;
-            }
-            set
-            {
-                this.hearing_impairedField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte visual_impaired
-        {
-            get
-            {
-                return this.visual_impairedField;
-            }
-            set
-            {
-                this.visual_impairedField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte clean_effects
-        {
-            get
-            {
-                return this.clean_effectsField;
-            }
-            set
-            {
-                this.clean_effectsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte attached_pic
-        {
-            get
-            {
-                return this.attached_picField;
-            }
-            set
-            {
-                this.attached_picField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class ffprobeStreamTag
-    {
-
-        private string keyField;
-
-        private string valueField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string key
-        {
-            get
-            {
-                return this.keyField;
-            }
-            set
-            {
-                this.keyField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class ffprobeFormat
-    {
-
-        private ffprobeFormatTag[] tagField;
-
-        private string filenameField;
-
-        private byte nb_streamsField;
-
-        private byte nb_programsField;
-
-        private string format_nameField;
-
-        private string format_long_nameField;
-
-        private decimal start_timeField;
-
-        private decimal durationField;
-
-        private uint sizeField;
-
-        private uint bit_rateField;
-
-        private byte probe_scoreField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("tag")]
-        public ffprobeFormatTag[] tag
-        {
-            get
-            {
-                return this.tagField;
-            }
-            set
-            {
-                this.tagField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string filename
-        {
-            get
-            {
-                return this.filenameField;
-            }
-            set
-            {
-                this.filenameField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte nb_streams
-        {
-            get
-            {
-                return this.nb_streamsField;
-            }
-            set
-            {
-                this.nb_streamsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte nb_programs
-        {
-            get
-            {
-                return this.nb_programsField;
-            }
-            set
-            {
-                this.nb_programsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string format_name
-        {
-            get
-            {
-                return this.format_nameField;
-            }
-            set
-            {
-                this.format_nameField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string format_long_name
-        {
-            get
-            {
-                return this.format_long_nameField;
-            }
-            set
-            {
-                this.format_long_nameField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public decimal start_time
-        {
-            get
-            {
-                return this.start_timeField;
-            }
-            set
-            {
-                this.start_timeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public decimal duration
-        {
-            get
-            {
-                return this.durationField;
-            }
-            set
-            {
-                this.durationField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint size
-        {
-            get
-            {
-                return this.sizeField;
-            }
-            set
-            {
-                this.sizeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint bit_rate
-        {
-            get
-            {
-                return this.bit_rateField;
-            }
-            set
-            {
-                this.bit_rateField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte probe_score
-        {
-            get
-            {
-                return this.probe_scoreField;
-            }
-            set
-            {
-                this.probe_scoreField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class ffprobeFormatTag
-    {
-
-        private string keyField;
-
-        private string valueField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string key
-        {
-            get
-            {
-                return this.keyField;
-            }
-            set
-            {
-                this.keyField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
     }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ================================================================================
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ffprobe>
+        <streams>
+            <stream index="0" codec_name="h264" codec_long_name="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" profile="Baseline" codec_type="video" codec_time_base="1/180000" codec_tag_string="avc1" codec_tag="0x31637661" width="1280" height="720" has_b_frames="0" sample_aspect_ratio="1:1" display_aspect_ratio="16:9" pix_fmt="yuv420p" level="31" chroma_location="left" is_avc="1" nal_length_size="4" r_frame_rate="30/1" avg_frame_rate="9495000/316319" time_base="1/90000" start_pts="0" start_time="0.000000" duration_ts="1265276" duration="14.058622" bit_rate="11996509" bits_per_raw_sample="8" nb_frames="422" nb_read_frames="422">
+                <disposition default="1" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+                <tag key="creation_time" value="2015-10-03 15:18:05"/>
+                <tag key="language" value="eng"/>
+                <tag key="handler_name" value="VideoHandle"/>
+            </stream>
+            <stream index="1" codec_name="aac" codec_long_name="AAC (Advanced Audio Coding)" profile="LC" codec_type="audio" codec_time_base="1/48000" codec_tag_string="mp4a" codec_tag="0x6134706d" sample_fmt="fltp" sample_rate="48000" channels="2" channel_layout="stereo" bits_per_sample="0" r_frame_rate="0/0" avg_frame_rate="0/0" time_base="1/48000" start_pts="0" start_time="0.000000" duration_ts="686650" duration="14.305208" bit_rate="155870" nb_frames="670" nb_read_frames="670">
+                <disposition default="1" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+                <tag key="creation_time" value="2015-10-03 15:18:05"/>
+                <tag key="language" value="eng"/>
+                <tag key="handler_name" value="SoundHandle"/>
+            </stream>
+            <stream index="0" codec_name="mjpeg" codec_long_name="MJPEG (Motion JPEG)" codec_type="video" codec_time_base="33333/1000000" codec_tag_string="MJPG" codec_tag="0x47504a4d" width="1280" height="720" has_b_frames="0" sample_aspect_ratio="0:1" display_aspect_ratio="0:1" pix_fmt="yuvj422p" level="-99" color_range="pc" color_space="bt470bg" chroma_location="center" r_frame_rate="1000000/33333" avg_frame_rate="1000000/33333" time_base="33333/1000000" start_pts="0" start_time="0.000000" duration_ts="210" duration="6.999930" bit_rate="24790911" bits_per_raw_sample="8" nb_frames="210" nb_read_frames="197">
+                <disposition default="0" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+            </stream>
+            <stream index="1" codec_name="pcm_s16le" codec_long_name="PCM signed 16-bit little-endian" codec_type="audio" codec_time_base="1/32000" codec_tag_string="[1][0][0][0]" codec_tag="0x0001" sample_fmt="s16" sample_rate="32000" channels="1" bits_per_sample="16" r_frame_rate="0/0" avg_frame_rate="0/0" time_base="1/32000" start_pts="0" start_time="0.000000" bit_rate="512000" nb_frames="112000" nb_read_frames="210">
+                <disposition default="0" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+            </stream>
+            <stream index="0" codec_name="h264" codec_long_name="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" profile="High" codec_type="video" codec_time_base="1/46" codec_tag_string="avc1" codec_tag="0x31637661" width="640" height="360" has_b_frames="2" sample_aspect_ratio="1:1" display_aspect_ratio="16:9" pix_fmt="yuv420p" level="31" chroma_location="left" is_avc="1" nal_length_size="4" r_frame_rate="23/1" avg_frame_rate="23/1" time_base="1/23000" start_pts="2000" start_time="0.086957" duration_ts="142305000" duration="6187.173913" bit_rate="239323" bits_per_raw_sample="8" nb_frames="142305">
+                <disposition default="1" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+                <tag key="creation_time" value="2012-04-10 03:55:08"/>
+                <tag key="language" value="und"/>
+                <tag key="handler_name" value="GPAC ISO Video Handler"/>
+            </stream>
+            <stream index="1" codec_name="aac" codec_long_name="AAC (Advanced Audio Coding)" profile="LC" codec_type="audio" codec_time_base="1/44100" codec_tag_string="mp4a" codec_tag="0x6134706d" sample_fmt="fltp" sample_rate="44100" channels="2" channel_layout="stereo" bits_per_sample="0" r_frame_rate="0/0" avg_frame_rate="0/0" time_base="1/44100" start_pts="0" start_time="0.000000" duration_ts="272876544" duration="6187.676735" bit_rate="109560" nb_frames="266481">
+                <disposition default="1" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+                <tag key="creation_time" value="2012-04-10 03:55:13"/>
+                <tag key="language" value="und"/>
+                <tag key="handler_name" value="GPAC ISO Audio Handler"/>
+            </stream>
+            <stream index="0" codec_name="h264" codec_long_name="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" profile="Baseline" codec_type="video" codec_time_base="1/60288" codec_tag_string="avc1" codec_tag="0x31637661" width="640" height="352" coded_width="640" coded_height="352" has_b_frames="0" sample_aspect_ratio="0:1" display_aspect_ratio="0:1" pix_fmt="yuv420p" level="30" chroma_location="left" refs="1" is_avc="true" nal_length_size="4" r_frame_rate="3768/125" avg_frame_rate="3768/125" time_base="1/30144" start_pts="0" start_time="0.000000" duration_ts="206000" duration="6.833864" bit_rate="1952039" bits_per_raw_sample="8" nb_frames="206">
+                <disposition default="1" dub="0" original="0" comment="0" lyrics="0" karaoke="0" forced="0" hearing_impaired="0" visual_impaired="0" clean_effects="0" attached_pic="0"/>
+                <tag key="creation_time" value="2016-01-14 01:16:34"/>
+                <tag key="language" value="eng"/>
+                <tag key="encoder" value="AVC Coding"/>
+            </stream>
+        </streams>
+
+        <format filename="C:\Users\Mikhail\Videos\20151003_171749.mp4" nb_streams="2" nb_programs="0" format_name="mov,mp4,m4a,3gp,3g2,mj2" format_long_name="QuickTime / MOV" start_time="0.000000" duration="14.293000" size="21765552" bit_rate="12182496" probe_score="100">
+            <tag key="major_brand" value="isom"/>
+            <tag key="minor_version" value="0"/>
+            <tag key="compatible_brands" value="isom3gp4"/>
+            <tag key="creation_time" value="2015-10-03 15:18:05"/>
+        </format>
+    </ffprobe>
+
+
+
+    <ffprobe>
+        <streams>
+            <stream codec_type="video" duration="6187.676735" codec_name="h264" width="1280" height="720" r_frame_rate="3768/125" avg_frame_rate="3768/125" nb_frames="4221231" nb_read_frames="4212132">
+            </stream>
+            <stream codec_type="video" >
+            </stream>
+        </streams>
+    </ffprobe>
+
+
+     ======================================================= */
 
 
 

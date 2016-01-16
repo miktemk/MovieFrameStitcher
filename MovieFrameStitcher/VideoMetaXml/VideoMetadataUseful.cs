@@ -15,7 +15,7 @@ namespace MovieFrameStitcher.VideoMetaXml
 		private ffprobe xml;
 		private ffprobeStream videoStream;
 		private ffprobeStream audioStream;
-		private ffprobeFormat format;
+		//private ffprobeFormat format;
 
 		public VideoMetadataUseful(ffprobe xml) {
 			this.xml = xml;
@@ -23,13 +23,13 @@ namespace MovieFrameStitcher.VideoMetaXml
 				videoStream = xml.streams.FirstOrDefault(x => x.codec_type == "video");
 				audioStream = xml.streams.FirstOrDefault(x => x.codec_type == "audio");
 			}
-			format = (ffprobeFormat)xml.format;
+			//format = (ffprobeFormat)xml.format;
 		}
 
         public ffprobe Raw { get { return xml; } }
         public ffprobeStream rawVideoStream { get { return videoStream; } }
         public ffprobeStream rawAudioStream { get { return audioStream; } }
-        public ffprobeFormat rawFormat { get { return format; } }
+        //public ffprobeFormat rawFormat { get { return format; } }
 
 		//public double VideoDurationSec {
 		//	get {
@@ -73,11 +73,11 @@ namespace MovieFrameStitcher.VideoMetaXml
 			}
 		}
 
-		public string Filename {
-			get {
-				return (format == null) ? "" : format.filename;
-			}
-		}
+        //public string Filename {
+        //    get {
+        //        return (format == null) ? "" : format.filename;
+        //    }
+        //}
 
 		public bool HasAudio {
 			get {
