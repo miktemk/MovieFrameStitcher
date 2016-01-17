@@ -15,6 +15,7 @@ namespace MovieFrameStitcher.GUI
         static void Main()
         {
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
+            Application.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormStitcher());

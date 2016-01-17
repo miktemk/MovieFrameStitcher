@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace MovieFrameStitcher
 {
@@ -36,8 +37,8 @@ namespace MovieFrameStitcher
 
 			Process process = new Process();
 			process.StartInfo.FileName = FfmpegExecutable;
-			process.StartInfo.Arguments = String.Format("-i \"{0}\" -y -f image2 -vf \"scale={2},fps=fps=1/{3}\" {1}/out%d.jpg",
-				filename, outFolder, thumbW + ":" + thumbH, interval);
+			process.StartInfo.Arguments = String.Format("-i \"{0}\" -y -f image2 -vf \"scale={2},fps=fps=1/{3}\" \"{1}/out%d.jpg\"",
+                filename, outFolder, thumbW + ":" + thumbH, interval.ToString(CultureInfo.InvariantCulture));
 			process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
 			//process.StartInfo.CreateNoWindow = true;
 
