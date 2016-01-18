@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="MetadataExtraction.cs" />
     <Compile Include="OpBaseclass.cs" />
+    <Compile Include="SimpleLog.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThumbnailStitcher.cs" />

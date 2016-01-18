@@ -40,6 +40,9 @@ namespace MovieFrameStitcher
 			process.StartInfo.Arguments = String.Format("-i \"{0}\" -y -f image2 -vf \"scale={2},fps=fps=1/{3}\" \"{1}/out%d.jpg\"",
                 filename, outFolder, thumbW + ":" + thumbH, interval.ToString(CultureInfo.InvariantCulture));
 			process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+
+            SimpleLog.Log(process.StartInfo.Arguments);
+
 			//process.StartInfo.CreateNoWindow = true;
 
 			runProcessRememberError(process);

@@ -104,6 +104,11 @@ Thumbs (@{1}): {2}",
 
             var ffmpegExtraction = new ThumbnailGenerationWithFfmpeg(CurFilename, thumbFolder, thumbW, thumbH, interval);
             ffmpegExtraction.run();
+            
+            if (ffmpegExtraction.ResultCode != OpResultCode.OK)
+            {
+                MessageBox.Show(ffmpegExtraction.ErrorMessage + "\n" + ffmpegExtraction.ErrorMessage2, ffmpegExtraction.ResultCode.ToString());
+            }
         }
 
         private void btnDeleteOld_Click(object sender, EventArgs e)
