@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Miktemk;
 
 namespace MovieFrameStitcher.GUI
 {
@@ -12,7 +13,7 @@ namespace MovieFrameStitcher.GUI
     {
         public static string GetThumbsDirectoryForVideo(string filename)
         {
-            return Utils.GetFullPathNoExtension(filename) + "-thumbs";
+            return UtilsPath.GetFullPathNoExtension(filename) + "-thumbs";
         }
 
         public static string GetMetaFilenameForVideo(string filename)

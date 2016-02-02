@@ -49,7 +49,8 @@ namespace MovieFrameStitcher
 			try {
 				process.Start();
 				process.WaitForExit();// Waits here for the process to exit.
-			}
+                ResultCode = OpResultCode.OK;
+            }
 			catch (Win32Exception ex) {
 				if (ex.NativeErrorCode == 2)
 					ResultCode = OpResultCode.FileNotFound;

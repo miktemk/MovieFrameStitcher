@@ -37,7 +37,9 @@ namespace MovieFrameStitcher
 
 			Process process = new Process();
 			process.StartInfo.FileName = FfmpegExecutable;
-			process.StartInfo.Arguments = String.Format("-i \"{0}\" -y -f image2 -vf \"scale={2},fps=fps=1/{3}\" \"{1}/out%d.jpg\"",
+            // .... NOTE: "-q:v 1" option is needed to extract images of highest possible quality
+            // .... http://superuser.com/questions/318845/improve-quality-of-ffmpeg-created-jpgs
+            process.StartInfo.Arguments = String.Format("-i \"{0}\" -y -f image2 -q:v 1 -vf \"scale={2},fps=fps=1/{3}\" \"{1}/out%d.jpg\"",
                 filename, outFolder, thumbW + ":" + thumbH, interval.ToString(CultureInfo.InvariantCulture));
 			process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
 
